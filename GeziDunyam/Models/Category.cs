@@ -11,8 +11,8 @@ namespace   GeziDunyam.Models
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(30)]
-        [Display(Name = "Category Name")]
+        [StringLength(30)]
+        [Display(Name = "Kategori Adı")]
         public string CategoryName { get; set; }
 
 

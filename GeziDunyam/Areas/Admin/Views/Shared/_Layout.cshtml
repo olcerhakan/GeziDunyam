@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="~/Areas/Admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="~/Areas/Admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
+    <link href="~/Areas/Admin/plugins/toastr/toastr.min.css" rel="stylesheet" />
+
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="~/Areas/Admin/dist/css/adminlte.min.css">
     <!-- summernote -->
@@ -168,12 +170,12 @@
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">
-                            @if (User.Identity.DisplayName() !=null)
+                            @if (User.Identity.DisplayName() != null)
                             {
 
                                 @User.Identity.DisplayName()
                             }
-                        
+
                         </a>
                     </div>
                 </div>
@@ -296,6 +298,8 @@
     <script src="~/Areas/Admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="~/Areas/Admin/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
     <script src="~/Areas/Admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+    <script src="~/Areas/Admin/plugins/toastr/toastr.min.js"></script>
     <!-- AdminLTE App -->
     <script src="~/Areas/Admin/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
@@ -306,5 +310,20 @@
 
     <script src="~/Areas/Admin/dist/js/admin.custom.js"></script>
     @RenderSection("scripts", false)
+
+    <script>
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <text>
+            toastr.success('@(TempData["SuccessMessage"])');
+            </text>
+        }
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <text>
+            toastr.error('@(TempData["ErrorMessage"])');
+            </text>
+        }
+    </script>
 </body>
 </html>
