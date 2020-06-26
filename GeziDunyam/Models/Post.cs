@@ -15,13 +15,18 @@ namespace GeziDunyam.Models
         [ForeignKey("Author")]
         public string AuthorId { get; set; }
 
+        public int CategoryId { get; set; }
+
         [Required]
+        [MaxLength(200)]
         public string Title { get; set; }
+
         public string Content { get; set; }
 
         public string PhotoPath { get; set; }
 
         [Required]
+        [MaxLength(200)]
         public string Slug { get; set; }
 
         [Required]
@@ -30,8 +35,8 @@ namespace GeziDunyam.Models
         [Required]
         public DateTime? ModificationTime { get; set; }
 
+
         public virtual ApplicationUser Author { get; set; }
         public virtual Category Category { get; set; }
-        public int CategoryId { get; set; }
     }
 }

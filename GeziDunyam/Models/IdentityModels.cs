@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace GeziDunyam.Models
             return userIdentity;
         }
 
+        [MaxLength(30)]
         public string DisplayName { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
     }
@@ -26,7 +28,7 @@ namespace GeziDunyam.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("ApplicationDbContext", throwIfV1Schema: false)
         {
         }
 
@@ -45,5 +47,7 @@ namespace GeziDunyam.Models
 
             base.OnModelCreating(modelBuilder); 
         }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Post> Posts { get; set; }
     }
 }
