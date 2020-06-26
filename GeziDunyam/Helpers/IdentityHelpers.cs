@@ -1,4 +1,7 @@
-﻿using System;
+﻿using GeziDunyam.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -14,8 +17,10 @@ namespace GeziDunyam.Helpers
             var claims = ((ClaimsIdentity)identity).Claims;
 
             string displayName = claims.FirstOrDefault(x => x.Type == "DisplayName").Value;
+           
 
             return displayName;
         }
+
     }
 }

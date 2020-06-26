@@ -13,7 +13,7 @@ namespace GeziDunyam.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202006261253386_Initial"; }
+            get { return "202006261825281_Initial"; }
         }
         
         string IMigrationMetadata.Source

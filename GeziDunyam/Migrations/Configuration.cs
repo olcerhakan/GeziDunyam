@@ -1,8 +1,8 @@
 namespace GeziDunyam.Migrations
 {
+    using GeziDunyam.Models;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
-    using GeziDunyam.Models;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -18,6 +18,7 @@ namespace GeziDunyam.Migrations
 
         protected override void Seed(GeziDunyam.Models.ApplicationDbContext context)
         {
+
             // https://stackoverflow.com/questions/19280527/mvc-5-seed-users-and-roles
             if (!context.Roles.Any(r => r.Name == "admin"))
             {

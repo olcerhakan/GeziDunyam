@@ -12,6 +12,7 @@ namespace   GeziDunyam.Models
 
         [Required]
         [MaxLength(30)]
+        [Display(Name = "Category Name")]
         public string CategoryName { get; set; }
 
 

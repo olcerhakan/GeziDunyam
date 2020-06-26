@@ -12,6 +12,7 @@ namespace GeziDunyam.Areas.Admin.Controllers
         // GET: Admin/Dashboard
         public ActionResult Index()
         {
+
             var vm = new DashboardViewModel
             {
                 CategoryCount = db.Categories.Count(),

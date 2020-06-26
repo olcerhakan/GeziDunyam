@@ -187,9 +187,9 @@
     </Compile>
     <Compile Include="Helpers\IdentityHelpers.cs" />
     <Compile Include="Helpers\UrlService.cs" />
-    <Compile Include="Migrations\202006261253386_Initial.cs" />
-    <Compile Include="Migrations\202006261253386_Initial.Designer.cs">
-      <DependentUpon>202006261253386_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\202006261825281_Initial.cs" />
+    <Compile Include="Migrations\202006261825281_Initial.Designer.cs">
+      <DependentUpon>202006261825281_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -2005,6 +2005,7 @@
     <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Categories\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Posts\New.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\New.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2241,8 +2242,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202006261253386_Initial.resx">
-      <DependentUpon>202006261253386_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202006261825281_Initial.resx">
+      <DependentUpon>202006261825281_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
