@@ -16,6 +16,7 @@ namespace GeziDunyam.Models
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
+            userIdentity.AddClaim(new Claim("DisplayName", DisplayName));
             // Add custom user claims here
             return userIdentity;
         }

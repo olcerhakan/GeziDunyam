@@ -18,7 +18,7 @@
             <h2 class="card-title">@post.Title</h2>
 
             @Html.Raw(post.Content)
-            <a href="#" class="btn btn-primary">Daha Fazla &rarr;</a>
+            <a href="@Url.Action("Show","Post", new { slug = post.Slug })" class="btn btn-primary">Daha Fazla &rarr;</a>
         </div>
         <div class="card-footer text-muted">
              @post.CreationTime.Value.ToShortDateString() tarihinde
