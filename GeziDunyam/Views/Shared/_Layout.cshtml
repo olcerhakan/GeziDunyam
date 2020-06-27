@@ -23,7 +23,7 @@
 <body style="background-color:aliceblue" class="d-flex flex-column h-100">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top" style="font-family:Calibri">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">Gezilerle Yaşıyorum!</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,21 +32,40 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
 
-                    <li class="nav-item">
+                    <li class="nav-item  radiusClass">
                         @Html.ActionLink("Anasayfa", "Index", "Home", null, new { @class = "nav-link" })
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item  radiusClass">
                         @Html.ActionLink("Hakkımızda", "About", "Home", null, new { @class = "nav-link" })
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item  radiusClass">
                         @Html.ActionLink("İletişim", "Contact", "Home", null, new { @class = "nav-link" })
                     </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("Yönetim", "Index", "Dashboard", new { area = "Admin" }, new { @class = "nav-link" })
-                    </li>
+                 
                 </ul>
 
                 @Html.Partial("_LoginPartial")
+
+                <ul class="navbar-nav  ">
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li class="nav-item d-lg-none radiusClass">
+                            @Html.ActionLink("Yönetim", "Index", "Dashboard", new { area = "Admin" }, new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item dropdown d-none d-lg-block btn mr-2 radiusClass ">
+                            <div class="btn-group">
+                                @Html.ActionLink("Yönetim", "Index", "Dashboard", new { area = "Admin" }, new { @class = "radiusClass" })
+                                <a href="#" class="radiusClass dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </a>
+                                <div class="dropdown-menu">
+                                    @Html.ActionLink("Kategoriler", "Index", "Categories", new { area = "Admin" }, new { @class = "dropdown-item" })
+                                    @Html.ActionLink("Yazılar", "Index", "Posts", new { area = "Admin" }, new { @class = "dropdown-item" })
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
             </div>
         </div>
     </nav>
@@ -88,11 +107,11 @@
 
                 <!-- Side Widget -->
                 @*<div class="card my-4">
-                    <h5 class="card-header">Side Widget</h5>
-                    <div class="card-body">
-                        You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
-                    </div>
-                </div>*@
+                        <h5 class="card-header">Side Widget</h5>
+                        <div class="card-body">
+                            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+                        </div>
+                    </div>*@
 
             </div>
 
@@ -107,7 +126,7 @@
     </div>
     <!-- /.container -->
     <!-- Footer -->
-    <footer class="py-5 bg-info mt-auto">
+    <footer class="py-4 bg-info mt-auto">
         <div class="container">
             <p class="m-0 text-center text-white">Copyright &copy;  2020 - Hakan Ölçer</p>
         </div>

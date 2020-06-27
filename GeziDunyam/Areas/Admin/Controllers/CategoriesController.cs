@@ -77,7 +77,11 @@ namespace GeziDunyam.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-
+            if (category.Posts.Count > 0)
+            {
+                TempData["ErrorMessage"] = "Bu kategorinin silinmesi için içindeki yazıların silinmesi gerekir.";
+                return RedirectToAction("Index");
+            }
             db.Categories.Remove(category);
             db.SaveChanges();
             TempData["SuccessMessage"] = "Kategori başarıyla silindi.";

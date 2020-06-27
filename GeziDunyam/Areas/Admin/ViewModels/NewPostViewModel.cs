@@ -1,9 +1,11 @@
 ﻿using System;
+
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using GeziDunyam.Helpers;
 
 namespace GeziDunyam.Areas.Admin.ViewModels
 {
@@ -19,5 +21,12 @@ namespace GeziDunyam.Areas.Admin.ViewModels
         public string Content { get; set; }
 
         public string PhotoPath { get; set; }
+        [PostedImage]
+        public HttpPostedFileBase FeaturedImage { get; set; }
+
+        [Required]
+        [Display(Name = "Kısa Url")]
+        [StringLength(200)]
+        public string Slug { get; set; }
     }
 }
