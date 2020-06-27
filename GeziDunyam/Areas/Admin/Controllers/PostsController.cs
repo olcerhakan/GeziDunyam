@@ -59,7 +59,7 @@ namespace GeziDunyam.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-
+            this.DeleteImage(post.PhotoPath);
             db.Posts.Remove(post);
             db.SaveChanges();
             TempData["SuccessMessage"] = "Yazı başarıyla silindi.";
