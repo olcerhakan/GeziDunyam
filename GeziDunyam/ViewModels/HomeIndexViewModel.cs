@@ -9,5 +9,9 @@ namespace GeziDunyam.ViewModels
     public class HomeIndexViewModel
     {
         public List<Post> Posts { get; set; }
+
+        public Category Category { get; set; }
+
+        public string SearchTerm { get; set; }
     }
 }

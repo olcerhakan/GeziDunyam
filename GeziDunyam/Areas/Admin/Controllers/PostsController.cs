@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Net;
 
 namespace GeziDunyam.Areas.Admin.Controllers
 {
@@ -41,13 +42,68 @@ namespace GeziDunyam.Areas.Admin.Controllers
                 };
                 db.Posts.Add(post);
                 db.SaveChanges();
-
-                // todo: Posts/Index'e yönlendir
+                TempData["SuccessMessage"] = "Yazı başarıyla eklendi.";
+                
                 return RedirectToAction("Index");
             }
 
             ViewBag.CategoryId = new SelectList(db.Categories.OrderBy(x => x.CategoryName).ToList(), "Id", "CategoryName");
             return View();
+        }
+
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var post = db.Posts.Find(id);
+
+            if (post == null)
+            {
+                return HttpNotFound();
+            }
+
+            var vm = new EditPostViewModel
+            {
+                Id = post.Id,
+                CategoryId = post.CategoryId,
+                Content = post.Content,
+                CreationTime = post.CreationTime.Value,
+                CurrentFeaturedImage = post.PhotoPath,
+                ModificationTime = post.ModificationTime.Value,
+                Slug = post.Slug,
+                Title = post.Title
+            };
+
+            ViewBag.CategoryId = new SelectList(db.Categories.OrderBy(x => x.CategoryName).ToList(), "Id", "CategoryName");
+            return View(vm);
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Edit(EditPostViewModel vm)
+        {
+            if (ModelState.IsValid)
+            {
+                var post = db.Posts.Find(vm.Id);
+                post.CategoryId = vm.CategoryId;
+                post.Title = vm.Title;
+                post.Content = vm.Content;
+                post.ModificationTime = DateTime.Now;
+                post.Slug = UrlService.URLFriendly(vm.Slug);
+                if (vm.FeaturedImage != null)
+                {
+                    this.DeleteImage(post.PhotoPath);
+                    post.PhotoPath = this.SaveImage(vm.FeaturedImage);
+                }
+                db.SaveChanges();
+                TempData["SuccessMessage"] = "Yazı Başarıyla Güncellendi.";
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.CategoryId = new SelectList(db.Categories.OrderBy(x => x.CategoryName).ToList(), "Id", "CategoryName");
+            return View(vm);
         }
 
         [HttpPost, ValidateAntiForgeryToken]

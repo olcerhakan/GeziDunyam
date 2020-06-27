@@ -8,5 +8,9 @@
 
 
 <div class="show-post">
+    @if (!string.IsNullOrEmpty(Model.PhotoPath))
+    {
+        <img src="@Url.FeaturedImage(Model.PhotoPath)" alt="Yazı Resmi" />
+    }
     @Html.Raw(Model.Content)
 </div>
