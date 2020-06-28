@@ -21,6 +21,14 @@ namespace GeziDunyam.Helpers
 
             return displayName;
         }
-
+        public static string ProfilePhoto(this IIdentity identity)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                string userId = identity.GetUserId();
+                var user = db.Users.Find(userId);
+                return user.ProfilePhoto;
+            }
+        }
     }
 }

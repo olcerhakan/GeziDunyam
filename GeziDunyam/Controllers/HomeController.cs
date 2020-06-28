@@ -5,13 +5,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using X.PagedList;
 
 namespace GeziDunyam.Controllers
 {
     public class HomeController : BaseController
     {
-        public ActionResult Index(string q, int? cid)
+        public ActionResult Index(string q, int? cid, int page = 1)
         {
+            var pageSize = 8;
+
             IQueryable<Post> posts = db.Posts;
             Category category = null;
 
@@ -35,9 +38,10 @@ namespace GeziDunyam.Controllers
             }
             var vm = new HomeIndexViewModel
             {
-                Posts = posts.OrderByDescending(x => x.CreationTime).ToList(),
+                Posts = posts.OrderByDescending(x => x.CreationTime).ToPagedList(page, pageSize),
                 Category = category,
-                SearchTerm = q
+                SearchTerm = q,
+                CategoryId = cid
             };
 
             return View(vm);

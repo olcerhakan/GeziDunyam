@@ -1,4 +1,5 @@
 ﻿(function () {
+    bsCustomFileInput.init();
 
     $("#frmSearch").submit(function (event) {
 
