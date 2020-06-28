@@ -1,4 +1,4 @@
-﻿
+﻿using GeziDunyam.Helpers;
 using GeziDunyam.Models;
 using System;
 using System.Collections.Generic;
@@ -28,6 +28,7 @@ namespace GeziDunyam.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                category.Slug = UrlService.URLFriendly(category.Slug);
                 db.Categories.Add(category);
                 db.SaveChanges();
                 TempData["SuccessMessage"] = "Kategori başarıyla eklendi";
@@ -59,6 +60,7 @@ namespace GeziDunyam.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                category.Slug = UrlService.URLFriendly(category.Slug);
                 db.Entry(category).State = EntityState.Modified;
                 db.SaveChanges();
                 TempData["SuccessMessage"] = "Kategori başarıyla güncellendi.";
