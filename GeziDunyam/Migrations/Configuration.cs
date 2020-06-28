@@ -50,6 +50,7 @@ namespace GeziDunyam.Migrations
                     context.Categories.Add(new Category
                     {
                         CategoryName = "Sample Category 1",
+                        Slug = "sample-category-1",
                         Posts = new List<Post>
                         {
                             new Post
@@ -84,6 +85,7 @@ namespace GeziDunyam.Migrations
                 context.Categories.Add(new Category
                 {
                     CategoryName = "Generated Posts",
+                    Slug = "generated-posts",
                     Posts = GeneratePosts(userId)
                 });
             }

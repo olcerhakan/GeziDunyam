@@ -16,6 +16,10 @@ namespace   GeziDunyam.Models
         public string CategoryName { get; set; }
 
 
+        [Required]
+        [StringLength(30)]
+        [Display(Name = "Kısa Url")]
+        public string Slug { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
     }
 }

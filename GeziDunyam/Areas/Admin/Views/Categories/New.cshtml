@@ -18,8 +18,23 @@
                     <div class="card-body">
                         <div class="form-group">
                             @Html.LabelFor(x => x.CategoryName)
-                            @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control", placeholder = "Category Name" })
+                            @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control", placeholder = "Kategori Adı" })
                             @Html.ValidationMessageFor(x => x.CategoryName, null, new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Slug)
+
+                            <div class="input-group">
+                                @Html.TextBoxFor(x => x.Slug, new { @class = "form-control", placeholder = "Kısa Url" })
+                                <div class="input-group-append">
+                                    <a id="refreshSlug" href="#" class="btn btn-outline-success">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            @Html.ValidationMessageFor(x => x.Slug, null, new { @class = "text-danger" })
                         </div>
                     </div>
                     <!-- /.card-body -->
@@ -35,3 +50,9 @@
         </div>
     </div>
 </div>
+
+@section scripts {
+    <script>
+        slug.run("#CategoryName", "#Slug", "#refreshSlug");
+    </script>
+}

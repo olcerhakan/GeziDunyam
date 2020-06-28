@@ -53,19 +53,19 @@
         Model.Posts.PageNumber) /  @Model.Posts.PageCount 
     </div>
     @Html.PagedListPager(Model.Posts, page => Url.Action("Index",
-   new { page, cid = Model.CategoryId, q = Model.SearchTerm }), new PagedListRenderOptionsBase
-       {
-           ContainerDivClasses = new string[] { "pagination-container", "d-flex" },
-           UlElementClasses = new string[] { "pagination", "mx-auto" },
-           LiElementClasses = new string[] { "page-item" },
-           PageClasses = new string[] { "page-link" },
-           EllipsesElementClass = "page-link",
-           LinkToFirstPageFormat = "&laquo;",
-           LinkToLastPageFormat = "&raquo;",
-           LinkToPreviousPageFormat = "&lsaquo;",
-           LinkToNextPageFormat = "&rsaquo;",
-           MaximumPageNumbersToDisplay = 5,
-       })
+     new { page, q = Model.SearchTerm }), new PagedListRenderOptionsBase
+     {
+         ContainerDivClasses = new string[] { "pagination-container", "d-flex" },
+         UlElementClasses = new string[] { "pagination", "mx-auto" },
+         LiElementClasses = new string[] { "page-item" },
+         PageClasses = new string[] { "page-link" },
+         EllipsesElementClass = "page-link",
+         LinkToFirstPageFormat = "&laquo;",
+         LinkToLastPageFormat = "&raquo;",
+         LinkToPreviousPageFormat = "&lsaquo;",
+         LinkToNextPageFormat = "&rsaquo;",
+         MaximumPageNumbersToDisplay = 5,
+     })
 </nav>
 
 

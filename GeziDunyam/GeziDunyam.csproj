@@ -203,13 +203,9 @@
     <Compile Include="Helpers\ImageUtilities.cs" />
     <Compile Include="Helpers\PostedImageAttribute.cs" />
     <Compile Include="Helpers\UrlService.cs" />
-    <Compile Include="Migrations\202006261825281_Initial.cs" />
-    <Compile Include="Migrations\202006261825281_Initial.Designer.cs">
-      <DependentUpon>202006261825281_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006281410464_ProfilePhoto.cs" />
-    <Compile Include="Migrations\202006281410464_ProfilePhoto.Designer.cs">
-      <DependentUpon>202006281410464_ProfilePhoto.cs</DependentUpon>
+    <Compile Include="Migrations\202006281601090_Initial.cs" />
+    <Compile Include="Migrations\202006281601090_Initial.Designer.cs">
+      <DependentUpon>202006281601090_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -275,6 +271,7 @@
     <Content Include="Areas\Admin\dist\js\pages\dashboard.js" />
     <Content Include="Areas\Admin\dist\js\pages\dashboard2.js" />
     <Content Include="Areas\Admin\dist\js\pages\dashboard3.js" />
+    <Content Include="Areas\Admin\dist\js\slug.js" />
     <Content Include="Areas\Admin\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
     <Content Include="Areas\Admin\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css" />
     <Content Include="Areas\Admin\plugins\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
@@ -2319,11 +2316,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202006261825281_Initial.resx">
-      <DependentUpon>202006261825281_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006281410464_ProfilePhoto.resx">
-      <DependentUpon>202006281410464_ProfilePhoto.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202006281601090_Initial.resx">
+      <DependentUpon>202006281601090_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
