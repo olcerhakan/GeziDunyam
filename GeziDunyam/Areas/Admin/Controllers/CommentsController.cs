@@ -24,5 +24,16 @@ namespace GeziDunyam.Areas.Admin.Controllers
 
             return new HttpStatusCodeResult(System.Net.HttpStatusCode.OK);
         }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
+        {
+            var comment = db.Comments.Find(id);
+            db.Comments.RemoveRange(comment.Children);
+            db.Comments.Remove(comment);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

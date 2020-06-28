@@ -16,7 +16,7 @@
                     <th>İçerik</th>
                     <th>Yazar</th>
                     <th>Yazı Başlığı</th>
-                    <th>Oluşturma Zamanı</th>
+                    <th>Zaman</th>
                     <th>Yayınlama</th>
                     <th>İşlemler</th>
                 </tr>
@@ -26,7 +26,14 @@
                 {
                     <tr>
                         <td>@item.Id</td>
-                        <td>@item.Content</td>
+                        <td>
+                            @item.Content
+                            @if (item.Parent != null)
+                            {
+                                <br />
+                                <small>(Yorumu Yanıtla #@item.Parent.Id)</small>
+                            }
+                        </td>
                         <td>@item.Author.DisplayName</td>
                         <td>@item.Post.Title</td>
                         <td>@item.CreationTime.Value</td>
@@ -36,15 +43,15 @@
                                 data_bootstrap_switch = "",
                                 data_off_color = "danger",
                                 data_on_color = "success",
-                                data_off_text = "NO",
-                                data_on_text = "YES",
+                                data_off_text = "-",
+                                data_on_text = "+",
                                 data_comment_id = item.Id
                             })
                         </td>
                         <td>
-                            <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-warning">
+                            @*<a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-warning mb-1">
                                 <i class="fas fa-edit"></i>
-                            </a>
+                            </a>*@
                             <a href="#" class="btn btn-danger" data-delete-id="@item.Id" data-delete-name="Comment #@item.Id" data-delete-action="@Url.Action("Delete")">
                                 <i class="fas fa-trash"></i>
                             </a>

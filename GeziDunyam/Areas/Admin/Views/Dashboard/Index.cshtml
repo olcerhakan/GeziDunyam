@@ -7,19 +7,20 @@
     <!-- Small boxes (Stat box) -->
     <div class="row">
         <div class="col-lg-3 col-6">
-            @SmallBox(Model.CategoryCount.ToString(), "Categories", Url.Action("Index", "Categories"), "bg-info", "fas fa-table")
+            @SmallBox(Model.CategoryCount.ToString(), "Kategoriler", Url.Action("Index", "Categories"), "bg-info", "fas fa-table")
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-6">
-            @SmallBox(Model.PostCount.ToString(), "Posts", Url.Action("Index", "Posts"), "bg-success", "fas fa-file-alt")
+            @SmallBox(Model.PostCount.ToString(), "Yazılar", Url.Action("Index", "Posts"), "bg-success", "fas fa-file-alt")
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-6">
-            @SmallBox(Model.UserCount.ToString(), "Users", "#", "bg-warning", "fas fa-users")
+            @SmallBox(Model.UserCount.ToString(), "Üyeler", "#", "bg-warning", "fas fa-users")
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-6">
-            @SmallBox(Model.AdminCount.ToString(), "Admins", "#", "bg-danger", "fas fa-user-secret")
+            @*@SmallBox(Model.AdminCount.ToString(), "Admins", "#", "bg-danger", "fas fa-user-secret")*@
+            @SmallBox(Model.CommentCount.ToString(), "Yorumlar", Url.Action("Index", "Comments"), "bg-light", "fas fa-comments")
         </div>
         <!-- ./col -->
     </div>
