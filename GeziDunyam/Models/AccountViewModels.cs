@@ -55,10 +55,10 @@ namespace GeziDunyam.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Şifre")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Şifremi Unuttum?")]
         public bool RememberMe { get; set; }
     }
 
@@ -70,15 +70,20 @@ namespace GeziDunyam.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = " {0} en az {2} karakter içerebilir.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Şifre")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Şifreyi Doğrulayın")]
+        [Compare("Password", ErrorMessage = "Parolalar eşleşmiyor.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [StringLength(30)]
+        [Display(Name = "Display Name")]
+        public string DisplayName { get; set; }
     }
 
     public class ResetPasswordViewModel
@@ -89,14 +94,14 @@ namespace GeziDunyam.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = " {0} en az {2} karakter içerebilir.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Şifre")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Şifreyi Doğrulayın")]
+        [Compare("Password", ErrorMessage = "Parolalar eşleşmiyor.")]
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }
