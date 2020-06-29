@@ -24,17 +24,17 @@ namespace GeziDunyam.Areas.Admin.ViewModels
 
         public string CurrentFeaturedImage { get; set; }
 
-        [Display(Name = "Created")]
+        [Display(Name = "Oluşturulma")]
         public DateTime CreationTime { get; set; }
 
-        [Display(Name = "Last Modified")]
+        [Display(Name = "Son Güncelleme")]
         public DateTime ModificationTime { get; set; }
 
         [PostedImage]
         public HttpPostedFileBase FeaturedImage { get; set; }
 
         [Required]
-        [Display(Name = "Short Url")]
+        [Display(Name = "Kısa Url")]
         [StringLength(200)]
         public string Slug { get; set; }
     }

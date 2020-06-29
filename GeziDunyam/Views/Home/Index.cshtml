@@ -1,6 +1,6 @@
 ﻿@model HomeIndexViewModel
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Ana Sayfa";
 }
 
 <h1 class="my-4">
@@ -10,7 +10,7 @@
     }
     else
     {
-        @(Model.Category == null ? "Gezi Dünyam" : $"Posts in \"{Model.Category.CategoryName}\"")
+        @(Model.Category == null ? "Gezi Dünyam" : $"  \"{Model.Category.CategoryName}\" adlı kategori")
     }
 </h1>
 

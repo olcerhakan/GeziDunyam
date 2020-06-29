@@ -92,7 +92,7 @@ namespace GeziDunyam.Migrations
             #endregion
         }
 
-        private List<Post> GeneratePosts(string userId, int count = 80)
+        private List<Post> GeneratePosts(string userId, int count = 5)
         {
             var posts = new List<Post>();
 

@@ -39,7 +39,7 @@
             @if (Request.QueryString["commentSuccess"] == "True")
             {
                 <div class="alert alert-success">
-                    Your comment has been received succesfully.
+                    Yorum başarıyla kabul edildi.
                 </div>
             }
 
@@ -73,7 +73,7 @@
                     @comment.Content <br />
                     @if (Request.IsAuthenticated)
                     {
-                        <a href="#" class="reply-button small" data-comment-id="@comment.Id">Reply</a>
+                        <a href="#" class="reply-button small" data-comment-id="@comment.Id">Yanıtla</a>
                     }
                     else
                     {

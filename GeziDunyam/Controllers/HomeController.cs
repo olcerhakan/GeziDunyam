@@ -15,7 +15,7 @@ namespace GeziDunyam.Controllers
         [Route("c/{cid}/{slug}", Order = 1)]
         public ActionResult Index(string q, int? cid, string slug, int page = 1)
         {
-            var pageSize = 8;
+            var pageSize = 3;
 
             IQueryable<Post> posts = db.Posts;
             Category category = null;
