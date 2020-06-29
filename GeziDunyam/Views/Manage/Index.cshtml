@@ -162,7 +162,7 @@
         }
         $('#modalChangePhoto').on('hidden.bs.modal', function (e) {
             $("#file-input").val(null);
-            $(".custom-file-label").text("Choose file");
+            $(".custom-file-label").text("Dosya Seç");
             if (cropper) {
                 cropper.croppie('destroy');
                 cropper = null;
